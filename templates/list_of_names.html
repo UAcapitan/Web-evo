@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}List of names{% endblock %}
+
+{% block content %}
+    <div class='fixed-top container'>
+        <h3><a href='/list' class='text-decoration-none text-dark'>List of names</a></h3>
+    </div>
+
+    <div class='d-flex justify-content-center'>
+        <div>
+            {% for i in range(3) %}
+                <br>
+            {% endfor %}
+
+            {% for name in names.items %}
+                <p>{{ name }}</p>
+            {% endfor %}
+
+            <div class="text-right">
+                <a href="{{ url_for('list_of_names', page=names.prev_num) }}"
+                class="btn btn-outline-dark 
+                {% if names.page == 1 %}disabled{% endif %}">
+                    &laquo;
+                </a>
+                <a href="{{ url_for('list_of_names', page=names.next_num) }}"
+                class="btn btn-outline-dark 
+                {% if names.page == names.pages %}disabled{% endif %}">
+                    &raquo;
+                </a>
+            </div>
+            
+            <p class="text-right mt-3">
+            Showing page {{ names.page }} of {{ names.pages }}
+            </p>
+        </div>
+    </div>
+
+    <div class='fixed-bottom container'>
+		<p><a href="/" class='text-decoration-none'>Main page</a></p>
+	</div>
+{% endblock %}

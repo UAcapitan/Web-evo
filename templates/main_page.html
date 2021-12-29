@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Main page{% endblock %}
+
+{% block content %}
+	<div class='fixed-top container'>
+    	<h3><a href='/' class='text-decoration-none text-dark'>Main page</a></h3>
+	</div>
+
+	{% for i in range(7) %}
+		<br>
+	{% endfor %}
+	
+	{% if form %}
+		<form method="post">
+			<div class='d-flex justify-content-center'>
+				<input type="text" name="name" placeholder="Ім'я Прізвище">
+			</div>
+			<br>
+			<div class='d-flex justify-content-center'>
+				<input type="submit" class='btn btn-success' value='Привітатись'>
+			</div>
+		</form>
+	{% else %}
+		<div class='d-flex justify-content-center'>
+			<p>{{ text }}</p>
+		</div>
+	{% endif %}
+
+	<div class='fixed-bottom container'>
+		<p><a href="/list" class='text-decoration-none'>List of names</a></p>
+	</div>
+{% endblock %}
