@@ -31,7 +31,7 @@
 >>> python -m pip freeze > requirements.txt
 ```
 
-Після було створено файл *Dockerfile* та створено Docker контейнер:
+Після було створено файл *Dockerfile* та створено ***Docker*** контейнер:
 
 ```
 >>> docker image build -t web-evo .
